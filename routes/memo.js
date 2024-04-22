@@ -18,4 +18,19 @@ router.get('/', (req, res, next) => {
     })
 });
 
+router.get('/add', function (req, res, next) {
+    const data = {
+        title: 'メモる',
+        content: '新しいメモを書く'
+    }
+    res.render('memo/add', data);
+});
+
+router.post('/add', function (req, res, next) {
+    const memo = req.body.memo;
+    // セキュリティの懸念あり
+    db.run('insert into memos (text) values (?)', memo)
+    res.redirect('/memo');
+});
+
 module.exports = router
