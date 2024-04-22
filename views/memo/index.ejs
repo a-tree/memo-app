@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div>
+      <table>
+        <% for(var i in content) { %>
+        <tr>
+          <% var obj = content[i]; %>
+          <td><%= obj.id %></td>
+          <td><%= obj.text %></td>
+          <td><%= obj.createdAt %></td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+  </body>
+</html>
